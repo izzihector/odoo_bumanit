@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <record id="act_report_xml_view_extend" model="ir.ui.view">
+            <field name="name">ir.actions.report.extended.xml</field>
+            <field name="model">ir.actions.report.xml</field>
+            <field name="inherit_id" ref="base.act_report_xml_view"/>
+            <field name="arch" type="xml">
+                <field name='multi' position="after">
+                    <field name='template_id' attrs="{'invisible': [('report_type','!=','controller')]}" domain="[('mimetype','=','application/vnd.oasis.opendocument.text')]"/>
+                    <field name='output_file' attrs="{'invisible': [('report_type','!=','controller')]}"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>
